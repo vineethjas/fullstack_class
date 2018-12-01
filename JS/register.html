@@ -5,34 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+
+    <script src="registerscript.js"></script>
 </head>
 <body>
   <table class="table">
      <form>
         <tr>
           <td>Name</td>
-          <td><input type="text" required></td>
+          <td><input id="name" type="text" required></td>
         </tr>
         <tr>
           <td>Email</td>
-          <td><input type="text"></td>
+          <td><input id="email" type="text"></td>
         </tr>
         <tr>
           <td>Mobile Number</td>
-          <td><input type="text" pattern="[6789]{1}[0-9]{9}"></td>
+          <td><input id="mobile" type="text" pattern="[6789]{1}[0-9]{9}"></td>
         </tr>
         <tr>
           <td>Password</td>
-          <td><input type="password"></td>
+          <td><input id="password" type="password"></td>
         </tr>
         <tr>
           <td>Confirm Password</td>
-          <td><input type="password"></td>
+          <td><input id=confPassword type="password"></td>
         </tr>
         <tr>
           <td></td>
          <!--  <td><button class="btn btn-success" >Login</button></td> -->
-          <td><form action="/index.html"><button type="submit" value="Register">Register</button></form></td>
+          <td><form action="/index.html"><button type="button" onclick="readValues()" value="Register">Register</button></form></td>
         </tr>
     </form>  
   </table>
