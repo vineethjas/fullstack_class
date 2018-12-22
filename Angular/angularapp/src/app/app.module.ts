@@ -4,18 +4,39 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { DisplayComponent } from './display/display.component';
+import { RouterModule, Route, Routes} from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { ApiserviceService } from './apiservice.service';
+import { Http, HttpModule } from '@angular/http';
+
+const appRoutes:Routes=[{path:'',component:AppComponent},
+{path:'about',component:AboutComponent},
+{path:'users',component:UsersListComponent}
+
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
-    
+    NavbarComponent,
+    DisplayComponent,
+    AboutComponent,
+    MainComponent,
+    UsersListComponent
+
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    HttpModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ApiserviceService],
+  bootstrap: [NavbarComponent,MainComponent]
 })
 export class AppModule { }

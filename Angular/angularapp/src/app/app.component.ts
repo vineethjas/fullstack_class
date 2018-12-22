@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForm} from '@angular/forms'
-
-import { from } from 'rxjs';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,29 +7,42 @@ import { from } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular App';
-  myName='Vineeth';
-  myRoll='1';
-  location:string='Angamaly'
+  title = 'AngularTest';
+  myName='Suraj';
+  location:string='Ernakulam';
   status:boolean=false;
+  myName1='';
+  myRoll=0;
 
-  getStatus (){
-    return this.status; 
+  constructor(){
+
+  
+  setTimeout(() => {
+  this.status=true;
+   }, 10000);
   }
-  setStatus=()=>{
-    this.status=!(this.status);
+
+  clickme=()=>{
+   this.status=false;
   }
-constructor(){
-  setInterval(() => {
-    this.status=!(this.status);
-  }, 1000);
-}
-onSubmit(form:NgForm){
-console.log(form.value.getName)
-this.myName=form.value.getName;
-this.myRoll=form.value.getRollNo;
-}
-}
 
+  getstatus()
+  {
+  return this.status;
+  }
 
+  onSubmit(form:NgForm){
+   
+    this.myName1=form.value.getName;
+    this.myRoll=form.value.getRoll;
+   if(this.myRoll==10)
+   {
+     console.log("You are eligible")
+   }
+   else{
+    console.log("You are Not eligible")
+   }
 
+  }
+  
+}
